@@ -77,29 +77,7 @@ function configure_contrail {
 }
 
 function configure_contrail_plugin {
-    Q_PLUGIN_CONF_PATH=${Q_PLUGIN_CONF_PATH:-etc/neutron/plugins/opencontrail}
-    Q_PLUGIN_CONF_FILENAME=${Q_PLUGIN_CONF_FILENAME:-ContrailPlugin.ini}
-    Q_DB_NAME=neutron
-    Q_PLUGIN_CLASS=${Q_PLUGIN_CLASS:-neutron_plugin_contrail.plugins.opencontrail.contrail_plugin_v3.NeutronPluginContrailCoreV3}
-
-    local NEUTRON_CONF_PLUGIN_DIR=$NEUTRON_DIR/$Q_PLUGIN_CONF_PATH
-    mkdir -p $NEUTRON_CONF_PLUGIN_DIR
-    local NEUTRON_PLUGIN_CONF=$NEUTRON_CONF_PLUGIN_DIR/$Q_PLUGIN_CONF_FILENAME
-    touch $NEUTRON_PLUGIN_CONF
-
-    local MULTI_TENANCY=${MULTI_TENANCY:-False}
-    local APISERVER_PORT=${APISERVER_PORT:-8082}
-    local APISERVER_IP=${APISERVER_IP:-localhost}
-
-    iniset $NEUTRON_PLUGIN_CONF CONTRAIL multi_tenancy $MULTI_TENANCY
-    iniset $NEUTRON_PLUGIN_CONF CONTRAIL api_server_port $APISERVER_PORT
-    iniset $NEUTRON_PLUGIN_CONF CONTRAIL api_server_ip $APISERVER_IP
-
-    iniset $NEUTRON_CONF quotas quota_driver neutron.quota.ConfDriver
-    local PY_PLUGIN_PATH=$(python -c "import neutron_plugin_contrail; print neutron_plugin_contrail.__path__[0]")
-    iniset $NEUTRON_CONF DEFAULT api_extensions_path extensions:$PY_PLUGIN_PATH/extensions
-
-    iniset $NOVA_CONF DEFAULT network_api_class nova_contrail_vif.contrailvif.ContrailNetworkAPI
+    :
 }
 
 # main loop
