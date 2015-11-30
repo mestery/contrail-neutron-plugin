@@ -99,16 +99,6 @@ function configure_contrail_plugin {
     iniset $NOVA_CONF DEFAULT network_api_class nova_contrail_vif.contrailvif.ContrailNetworkAPI
 }
 
-function is_neutron_ovs_base_plugin() {
-    # False
-    return 1
-}
-
-function has_neutron_plugin_security_group() {
-    # True
-    return 0
-}
-
 # main loop
 if is_contrail_service_enabled ovn-northd || is_ovn_service_enabled ovn-controller; then
     if [[ "$1" == "stack" && "$2" == "install" ]]; then

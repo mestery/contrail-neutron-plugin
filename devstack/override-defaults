@@ -1,0 +1,9 @@
+function is_neutron_ovs_base_plugin {
+    # False
+    return 1
+}
+
+function has_neutron_plugin_security_group {
+    # True
+    return 0
+}
