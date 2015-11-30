@@ -32,6 +32,8 @@ function install_contrail {
     local _pwd=$(pwd)
     echo "Installing OpenContrail and dependent packages"
 
+    setup_package $DEST/contrail-neutron-plugin
+
     cd $DEST
     # Clone OpenContrail installer
     if [ ! -d "$CONTRAIL_INSTALLER" ]; then
