@@ -17,8 +17,8 @@ MY_XTRACE=$(set +o | grep xtrace)
 set +o xtrace
 
 CONTRAIL_INSTALLER=contrail-installer
-CONTRAIL_INSTALLER_REPO=${CONTRAIL_INSTALLER_REPO:https://github.com/Juniper/contrail-installer.git}
-CONTRAIL_BRANCH=${CONTRAIL_BRANCH:master}
+CONTRAIL_INSTALLER_REPO=${CONTRAIL_INSTALLER_REPO:-https://github.com/Juniper/contrail-installer.git}
+CONTRAIL_BRANCH=${CONTRAIL_BRANCH:-origin/master}
 CONTRAIL_CONF_DIR=/etc/contrail
 
 function is_contrail_service_enabled {
