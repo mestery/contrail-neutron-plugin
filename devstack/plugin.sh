@@ -45,6 +45,9 @@ function install_contrail {
     # Copy the sample OpenContrail localrc file over
     cp samples/localrc-all localrc
 
+    # Required packages
+    install_package ebtables
+
     cd $_pwd
 }
 
