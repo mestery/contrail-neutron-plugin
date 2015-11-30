@@ -100,7 +100,7 @@ function configure_contrail_plugin {
 }
 
 # main loop
-if is_contrail_service_enabled ovn-northd || is_ovn_service_enabled ovn-controller; then
+if is_contrail_service_enabled contrail; then
     if [[ "$1" == "stack" && "$2" == "install" ]]; then
         if [[ "$OFFLINE" != "True" ]]; then
             install_contrail
